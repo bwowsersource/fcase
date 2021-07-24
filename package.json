@@ -1,0 +1,37 @@
+{
+  "name": "fcase",
+  "version": "1.0.0",
+  "description": "Functional patter matching for typescript/javascript",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwowsersource/fcase.git"
+  },
+  "keywords": [
+    "'pattern",
+    "matching'",
+    "'typescript'",
+    "'javascript'"
+  ],
+  "author": "Akash",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bwowsersource/fcase/issues"
+  },
+  "homepage": "https://github.com/bwowsersource/fcase#readme",
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "gts": "^3.1.0",
+    "typescript": "^4.3.5"
+  }
+}
