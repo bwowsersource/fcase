@@ -1,7 +1,7 @@
 import {CB, ThenFn, ThenCB, makeThen} from './modifiers';
 import {createState, LocalState, StateSetter} from './state';
 
-export default function fcase<Case = boolean, TReturn = any>(
+export default function fcase<Case = boolean, TReturn = void>(
   input?: Case
 ) {
   type TSourceAndBool = Case | true;

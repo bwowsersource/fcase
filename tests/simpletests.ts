@@ -13,7 +13,9 @@ import {
 testInfo(
   'I spent one whole afternoon trying to make Mocha and Jasmine work. Gave up when my hunger took over'
 );
-testInfo("I've never set up either of them in an es module project with typescript");
+testInfo(
+  "I've never set up either of them in an es module project with typescript"
+);
 testInfo(
   'If someone can help me out on how to set up either of them, feel free to make a PR'
 );
@@ -28,9 +30,9 @@ const result = fcase<string | number, number>(c)(({match}) => {
     .then(shouldNotCall('value does not match', 1))
     .case(22)
     .then(shouldNotCall('value does not match if called again', 2))
-    
+
     .case('222')
-    .then(shouldNotCall('string value \'222\', not same as number(222)', 3))
+    .then(shouldNotCall("string value '222', not same as number(222)", 3))
     .case(222)
     .then(({}) => {
       testSuccess('Match number 222');
