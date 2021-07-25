@@ -25,7 +25,8 @@ const result = fcase(testSubject)(match => {
       return 3;
     })
     .case(222)
-    .then(shouldNotCall('conditions already met'));
+    .then(shouldNotCall('conditions already satisfied'))
+    .default(shouldNotCall('Conditions already satisfied'));
 });
 ```
 
@@ -53,6 +54,7 @@ const result = fcase(testSubject)(match => {
     .then(({matchNext, __DO__NEXT__}, didMatch) => {
       // didMatch is true
       // if matchNext/__DO__NEXT__ is not called, execution will break here
+      // matchNext executes the next block that satisfy case condition.
       matchNext();
       return 2;
     })
@@ -69,7 +71,7 @@ const result = fcase(testSubject)(match => {
     .then(({matchNext, __DO__NEXT__}, didMatch) => {
       // `didMatch` is false
       // this block executes because of __DO__NEXT__ in previous block
-      // __DO__NEXT__ executes block right after
+      // __DO__NEXT__ executes block right after the calling block
       // next block will not execute
       return 4;
     })
