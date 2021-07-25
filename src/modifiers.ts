@@ -1,10 +1,13 @@
 import {StateSetter, LocalState} from './state';
 
 export type CB = () => void;
-export type ThenCB<TThenReturn> = (args: {
-  matchNext: CB;
-  __DO__NEXT__: CB;
-}) => TThenReturn;
+export type ThenCB<TThenReturn> = (
+  args: {
+    matchNext: CB;
+    __DO__NEXT__: CB;
+  },
+  didMatch: boolean
+) => TThenReturn;
 
 type ThenStatusReturn<TThenReturn> =
   | [executed: true, val: TThenReturn]
@@ -44,10 +47,13 @@ export function makeThen<TThenSource, TThenReturn>(
     if (!getBreak() && (getPassThrough() || pattern === val)) {
       setPassThrough(false);
       setBreak(true);
-      const returnVal = cb({
-        matchNext: matchNextState(setBreak, setPassThrough),
-        __DO__NEXT__: __DO__NEXT__State(setBreak, setPassThrough),
-      });
+      const returnVal = cb(
+        {
+          matchNext: matchNextState(setBreak, setPassThrough),
+          __DO__NEXT__: __DO__NEXT__State(setBreak, setPassThrough),
+        },
+        pattern === val
+      );
       return [true, returnVal];
     }
     return [false, undefined];
