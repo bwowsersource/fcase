@@ -32,3 +32,6 @@ const result = fcase(testSubject)( match => {
 ```ts
 result === 3  // true - since matching block returned 3
 ```
+
+> Unlike traditional switch-case, fcase always break after a match.
+To keep continuing, an explicit call to `nextMatch` must be made.
