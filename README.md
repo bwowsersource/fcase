@@ -39,7 +39,7 @@ result === 3; // true - since matching block returned 3
 ### `Modifier` and `didMatch`
 
 `Modifier` is an object consisting of 2 control flow modifier functions `{matchNext,__DO__NEXT__}` passed as 1st parameter to `then` callback. 
-`didMatch` is a boolean value denoting whether the case statement matched or it is called from `__DO__NEXT__`
+`didMatch` is the 2nd parameter to `then` callback. It is a boolean value denoting whether the case statement matched or it is called from `__DO__NEXT__`
 > `__DO__NEXT__` is named so, to signify the oddness of using it and as a reminder that it is not recommended for regular usage. It is added as an explicit call, only to feature match native switch-case statement.
 
 These can be accessed as follows:
