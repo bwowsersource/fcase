@@ -10,7 +10,7 @@
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
-    "posttest": "echo 'Please lint. `gts lint` is giving me creaps'"
+    "posttest": "echo 'Please lint. `gts lint` is giving me creeps'"
   },
   "repository": {
     "type": "git",

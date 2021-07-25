@@ -33,7 +33,7 @@ export function shouldNotCall<T = any>(msg: string, returnVal?: T) {
 export function finishTest() {
   if (fails.length === 0) {
     didNotCalls.forEach(([fake, message]) => {
-      if (fake.notCalled) testSuccess(colors.bold('Did not ') + message);
+      if (fake.notCalled) testSuccess(colors.bold('Did not call: ') + message);
     });
     didNotCalls = [];
     fails = [];

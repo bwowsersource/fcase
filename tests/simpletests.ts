@@ -25,21 +25,24 @@ testInfo('Testing against', c);
 const result = fcase<string | number, number>(c)(({match}) => {
   match
     .case(22)
-    .then(shouldNotCall('Match wrong value', 1))
+    .then(shouldNotCall('value does not match', 1))
     .case(22)
-    .then(shouldNotCall('Match wrong value when checked again', 2))
+    .then(shouldNotCall('value does not match if called again', 2))
+    
+    .case('222')
+    .then(shouldNotCall('string value \'222\', not same as number(222)', 3))
     .case(222)
     .then(({}) => {
       testSuccess('Match number 222');
-      return 3;
+      return 4;
     })
-    .case('222')
-    .then(shouldNotCall('Match string "222"', 4));
+    .case(222)
+    .then(shouldNotCall('5th case: condition already met', 5));
 });
 
-result === 3
-  ? testSuccess('Match 3rd case')
-  : testFail('Did not match 3rd case');
+result === 4
+  ? testSuccess('Returned value 4, from 4th case')
+  : testFail('Did not match 4th case');
 
 finishTest();
 
