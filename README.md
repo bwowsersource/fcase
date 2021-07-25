@@ -64,14 +64,14 @@ const result = fcase(testSubject)(match => {
     .then(({matchNext, __DO__NEXT__}, didMatch) => {
       // didMatch is true
       // if matchNext/__DO__NEXT__ is not called, execution will break here
+      // __DO__NEXT__ executes block right after the calling block
       __DO__NEXT__();
       return 3;
     })
     .case('someCondition-that-will-never-match')
     .then(({matchNext, __DO__NEXT__}, didMatch) => {
       // `didMatch` is false
-      // this block executes because of __DO__NEXT__ in previous block
-      // __DO__NEXT__ executes block right after the calling block
+      // this block executes because of __DO__NEXT__ in previous block eventhough case condition doesn't match testSubject
       // next block will not execute
       return 4;
     })
