@@ -13,6 +13,8 @@ const testSubject = 222;
 ```ts
 const result = fcase(testSubject)( match => {
   match
+    .case('222')
+    .then(shouldNotCall('string("222") !== number(222)'))
     .case(22)
     .then(shouldNotCall('22 !== testSubject'))
     .case(22)
@@ -22,7 +24,7 @@ const result = fcase(testSubject)( match => {
       testSuccess('Yay!! 222 === testSubject');
       return 3;
     })
-    .case('222') // will throw error in typescript. More later
+    .case(222)
     .then(shouldNotCall('conditions already met'));
 });
 ```
