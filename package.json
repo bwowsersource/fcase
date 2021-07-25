@@ -4,14 +4,13 @@
   "description": "Functional patter matching for typescript/javascript",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node ./tests/simpletests.ts",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "echo 'Please lint. `gts lint` is giving me creaps'"
   },
   "repository": {
     "type": "git",
@@ -30,8 +29,15 @@
   },
   "homepage": "https://github.com/bwowsersource/fcase#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.21",
     "@types/node": "^14.11.2",
+    "@types/sinon": "^10.0.2",
+    "chai": "^4.3.4",
+    "colors": "^1.4.0",
     "gts": "^3.1.0",
+    "sinon": "^11.1.1",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "dependencies": {}
 }
