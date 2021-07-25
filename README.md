@@ -23,7 +23,7 @@ const result = fcase(testSubject)( match => {
       return 3;
     })
     .case('222') // will throw error in typescript. More later
-    .then(shouldNotCall('"222" !== testSubject'));
+    .then(shouldNotCall('conditions already met'));
 });
 ```
 
